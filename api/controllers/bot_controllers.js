@@ -197,9 +197,9 @@ exports.reply = async (req, res) => {
 
         const replyFunc = function(tweet, reply) {
             let sol_res = {
-              status: reply.slice(0,239) +' @' + tweet.screen_name,
-              in_reply_to_status_id: tweet.id,
-              in_reply_to_status_id_str:tweet.id_str
+              status: reply.slice(0,219) +' @' + tweet.screen_name,
+              in_reply_to_status_id: tweet.id_str,
+              auto_populate_reply_metadata: true
             };
             console.log(sol_res);
     

@@ -4,13 +4,14 @@ const {
 let Twit = require('twit');
 const {
     domain,
-    db_domain
+    db_domain,
+    webApp_domain
 } = require('../../config');
 let Twitter = new Twit(require('../../config'));
 
-let db = ['remdesivir', 'bed', 'plasma', 'oxygen', 'mumbai', 'maharashtra', 'delhi', 'karnataka', 'telangana', 'gujarat', 'tamil nadu', 'west bengal', 'gujarat', 'maharashtra', 'rajasthan', 'uttar pradesh', 'uttar pradesh', 'maharashtra', 'madhya pradesh', 'maharashtra', 'madhya pradesh', 'andhra pradesh', 'maharashtra', 'bihar', 'gujarat', 'uttar pradesh', 'punjab', 'uttar pradesh', 'maharashtra', 'jharkhand', 'haryana', 'uttar pradesh', 'gujarat', 'maharashtra', 'maharashtra', 'uttar pradesh', 'jammu and kashmir', 'maharashtra', 'jharkhand', 'punjab', 'maharashtra', 'uttar pradesh', '[5]', 'west bengal', 'madhya pradesh', 'madhya pradesh', 'tamil nadu', 'andhra pradesh', 'rajasthan', 'tamil nadu', 'chhattisgarh', 'rajasthan', 'chandigarh', 'assam', 'maharashtra', 'karnataka', 'karnataka', 'tamil nadu', 'uttar pradesh', 'uttar pradesh', 'tamil nadu', 'haryana', 'uttar pradesh', 'punjab', 'odisha', 'tamil nadu', 'telangana', 'maharashtra', 'maharashtra', 'andhra pradesh', 'kerala', 'maharashtra', 'uttar pradesh', 'uttar pradesh', 'rajasthan', 'maharashtra', 'uttar pradesh', 'jharkhand', 'chhattisgarh', 'odisha', 'uttar pradesh', 'kerala', 'andhra pradesh', 'gujarat', 'uttarakhand', 'west bengal', 'west bengal', 'odisha', 'maharashtra', 'maharashtra', 'rajasthan', 'maharashtra', 'karnataka', 'gujarat', 'madhya pradesh', 'uttar pradesh', 'west bengal', 'uttar pradesh', 'maharashtra', 'jammu and kashmir', 'maharashtra', 'karnataka', 'tamil nadu', 'karnataka', 'andhra pradesh', 'tamil nadu', 'andhra pradesh', 'tamil nadu', 'maharashtra', 'bihar', 'andhra pradesh', 'rajasthan', 'andhra pradesh', 'karnataka', 'kerala', 'west bengal', 'west bengal', 'jharkhand', 'west bengal', 'karnataka', 'punjab', 'tripura', 'bihar', 'uttar pradesh', 'west bengal', 'west bengal', 'maharashtra', 'maharashtra', 'haryana', 'madhya pradesh', 'chhattisgarh', 'rajasthan', 'odisha', 'bihar', 'maharashtra', 'uttar pradesh', 'kerala', 'tamil nadu', 'andhra pradesh', 'andhra pradesh', 'west bengal', 'odisha', 'chhattisgarh', 'uttar pradesh', 'maharashtra', 'karnataka', 'uttar pradesh', 'karnataka', 'maharashtra', 'gujarat', 'kerala', 'rajasthan', 'west bengal', 'west bengal', 'telangana', 'maharashtra', 'karnataka', 'telangana', 'puducherry', 'bihar', 'haryana', 'bihar', 'west bengal', 'mizoram', 'madhya pradesh', 'maharashtra', 'haryana', 'punjab', 'maharashtra', 'andhra pradesh', 'west bengal', 'delhi', 'bihar', 'madhya pradesh', 'uttar pradesh', 'haryana', 'uttar pradesh', 'chhattisgarh', 'manipur', 'madhya pradesh', 'uttar pradesh', 'bihar', 'andhra pradesh', 'telangana', 'uttar pradesh', 'maharashtra', 'west bengal', 'rajasthan', 'bihar', 'delhi', 'gujarat', 'west bengal', 'tamil nadu', 'puducherry', 'rajasthan', 'tamil nadu', 'madhya pradesh', 'uttar pradesh', 'karnataka', 'rajasthan', 'telangana', 'assam', 'uttarakhand', 'andhra pradesh', 'andhra pradesh', 'tamil nadu', 'rajasthan', 'delhi', 'jharkhand', 'tamil nadu', 'uttar pradesh', 'west bengal', 'madhya pradesh', 'uttar pradesh', 'madhya pradesh', 'gujarat', 'telangana', 'west bengal', 'haryana', 'west bengal', 'tamil nadu', 'karnataka', 'bihar', 'haryana', 'madhya pradesh', 'odisha', 'west bengal', 'tamil nadu', 'gujarat', 'karnataka', 'delhi', 'west bengal', 'andhra pradesh', 'jharkhand', 'bihar', 'west bengal', 'madhya pradesh', 'andhra pradesh', 'madhya pradesh', 'uttar pradesh', 'gujarat', 'madhya pradesh', 'delhi', 'west bengal', 'haryana', 'west bengal', 'haryana', 'gujarat', 'uttar pradesh', 'uttar pradesh', 'uttar pradesh', 'andhra pradesh', 'maharashtra', 'uttar pradesh', 'uttar pradesh', 'jharkhand', 'tamil nadu', 'gujarat', 'west bengal', 'haryana', 'bihar', 'west bengal', 'delhi', 'madhya pradesh', 'uttar pradesh', 'maharashtra', 'madhya pradesh', 'gujarat', 'uttar pradesh', 'west bengal', 'kerala', 'kerala', 'andhra pradesh', 'himachal pradesh', 'andhra pradesh', 'karnataka', 'bihar', 'andhra pradesh', 'telangana', 'bihar', 'assam', 'assam', 'jharkhand', 'andhra pradesh', 'assam', 'bihar', 'bihar', 'andaman and nicobar islands ut', 'jharkhand', 'andhra pradesh', 'tamil nadu', 'assam', 'bihar', 'andhra pradesh', 'bihar', 'bihar', 'jharkhand', 'assam', 'andhra pradesh', 'andhra pradesh', 'bihar', 'andhra pradesh', 'jharkhand', 'andhra pradesh', 'punjab', 'tamil nadu', 'tamil nadu', 'andhra pradesh', 'telangana', 'telangana', 'andhra pradesh', 'tamil nadu', 'bihar', 'bihar', 'uttar pradesh', 'andhra pradesh', 'andhra pradesh', 'andhra pradesh', 'bihar', 'assam', 'bihar', 'bihar', 'sikkim', 'goa']
+let db = ['remdesivir', 'bed', 'plasma', 'oxygen', 'ahmedabad', 'surat','gandhinagar', 'pune', 'kanpur', 'nagpur', 'indore', 'thane', 'salem', 'pimpri-chinchwad', 'vadodara', 'ghaziabad', 'ludhiana', 'agra', 'nashik', 'faridabad', 'meerut', 'rajkot', 'kalyan-dombivli', 'vasai-virar', 'varanasi', 'aurangabad', 'dhanbad', 'amritsar', 'navi mumbai', 'allahabad', 'howrah', 'gwalior', 'jabalpur', 'coimbatore', 'vijayawada', 'jodhpur', 'madurai', 'kota', 'solapur', 'hubli–dharwad', 'mysore', 'tiruchirappalli', 'bareilly', 'aligarh', 'tiruppur', 'gurgaon', 'moradabad', 'jalandhar', 'warangal', 'mira-bhayandar', 'jalgaon', 'guntur', 'bhiwandi', 'saharanpur', 'gorakhpur', 'bikaner', 'amravati', 'noida', 'jamshedpur', 'bhilai', 'cuttack', 'firozabad', 'kochi', 'nellore', 'bhavnagar', 'durgapur', 'asansol', 'rourkela', 'nanded', 'kolhapur', 'ajmer', 'akola', 'gulbarga', 'jamnagar', 'ujjain', 'loni', 'siliguri', 'jhansi', 'ulhasnagar', 'sangli-miraj &amp; kupwad', 'mangalore', 'erode', 'belgaum', 'kurnool', 'ambattur', 'rajahmundry', 'tirunelveli', 'malegaon', 'gaya', 'tirupati', 'udaipur', 'kakinada', 'davanagere', 'kozhikode', 'maheshtala', 'rajpur sonarpur', 'bokaro', 'south dumdum', 'bellary', 'patiala', 'gopalpur', 'bhagalpur', 'muzaffarnagar', 'bhatpara', 'panihati', 'latur', 'dhule', 'rohtak', 'sagar', 'korba', 'bhilwara', 'berhampur', 'muzaffarpur', 'ahmednagar', 'mathura', 'kollam', 'avadi', 'kadapa', 'anantapuram', 'kamarhati', 'bilaspur', 'sambalpur', 'shahjahanpur', 'satara', 'bijapur', 'rampur', 'shimoga', 'chandrapur', 'junagadh', 'thrissur', 'alwar', 'bardhaman', 'kulti', 'nizamabad', 'parbhani', 'tumkur', 'khammam', 'uzhavarkarai', 'bihar sharif', 'panipat', 'darbhanga', 'bally', 'dewas', 'ichalkaranji', 'karnal', 'bathinda', 'jalna', 'eluru', 'barasat', 'kirari suleman nagar', 'purnia', 'satna', 'mau', 'sonipat', 'farrukhabad', 'durg', 'ratlam', 'hapur', 'arrah', 'anantapur', 'karimnagar', 'etawah', 'ambarnath', 'north dumdum', 'bharatpur', 'begusarai', 'delhi', 'gandhidham', 'baranagar', 'tiruvottiyur', 'sikar', 'thoothukudi', 'rewa', 'mirzapur', 'raichur', 'pali', 'ramagundam', 'silchar', 'haridwar', 'vijayanagaram', 'tenali', 'nagercoil', 'sri ganganagar', 'karawal nagar', 'mango', 'thanjavur', 'bulandshahr', 'uluberia', 'katni', 'sambhal', 'singrauli', 'nadiad', 'secunderabad', 'naihati', 'yamunanagar', 'bidhannagar', 'pallavaram', 'bidar', 'munger', 'panchkula', 'burhanpur', 'raurkela industrial township', 'kharagpur', 'dindigul', 'hospet', 'nangloi jat', 'malda', 'ongole', 'deoghar', 'chapra', 'haldia', 'khandwa', 'nandyal', 'morena', 'amroha', 'anand', 'bhind', 'bhalswa jahangir pur', 'madhyamgram', 'bhiwani', 'berhampore', 'ambala', 'morbi', 'fatehpur', 'raebareli', 'khora, ghaziabad', 'chittoor', 'bhusawal', 'orai', 'bahraich', 'phusro', 'vellore', 'mehsana', 'raiganj', 'sirsa', 'danapur', 'serampore', 'sultan pur majra', 'guna', 'jaunpur', 'panvel', 'shivpuri', 'surendranagar dudhrej', 'unnao', 'chinsurah', 'alappuzha', 'kottayam', 'machilipatnam', 'adoni', 'udupi', 'katihar', 'proddatur', 'mahbubnagar', 'saharsa', 'dibrugarh', 'jorhat', 'hazaribagh', 'hindupur', 'nagaon', 'sasaram', 'hajipur', 'giridih', 'bhimavaram', 'kumbakonam', 'bongaigaon', 'dehri', 'madanapalle', 'siwan', 'bettiah', 'ramgarh', 'tinsukia', 'guntakal', 'srikakulam', 'motihari', 'dharmavaram', 'medininagar', 'gudivada', 'phagwara', 'pudukkottai', 'hosur', 'narasaraopet', 'suryapet', 'miryalaguda', 'tadipatri', 'karaikudi', 'kishanganj', 'jamalpur', 'ballia', 'kavali', 'tadepalligudem', 'buxar', 'tezpur', 'jehanabad', 'aurangabad', 'vasco da gama']
 
-let cityDb = ['maharashtra', 'mumbai', 'delhi', 'karnataka', 'telangana', 'gujarat', 'tamil nadu', 'west bengal', 'gujarat', 'maharashtra', 'rajasthan', 'uttar pradesh', 'uttar pradesh', 'maharashtra', 'madhya pradesh', 'maharashtra', 'madhya pradesh', 'andhra pradesh', 'maharashtra', 'bihar', 'gujarat', 'uttar pradesh', 'punjab', 'uttar pradesh', 'maharashtra', 'jharkhand', 'haryana', 'uttar pradesh', 'gujarat', 'maharashtra', 'maharashtra', 'uttar pradesh', 'jammu and kashmir', 'maharashtra', 'jharkhand', 'punjab', 'maharashtra', 'uttar pradesh', '[5]', 'west bengal', 'madhya pradesh', 'madhya pradesh', 'tamil nadu', 'andhra pradesh', 'rajasthan', 'tamil nadu', 'chhattisgarh', 'rajasthan', 'chandigarh', 'assam', 'maharashtra', 'karnataka', 'karnataka', 'tamil nadu', 'uttar pradesh', 'uttar pradesh', 'tamil nadu', 'haryana', 'uttar pradesh', 'punjab', 'odisha', 'tamil nadu', 'telangana', 'maharashtra', 'maharashtra', 'andhra pradesh', 'kerala', 'maharashtra', 'uttar pradesh', 'uttar pradesh', 'rajasthan', 'maharashtra', 'uttar pradesh', 'jharkhand', 'chhattisgarh', 'odisha', 'uttar pradesh', 'kerala', 'andhra pradesh', 'gujarat', 'uttarakhand', 'west bengal', 'west bengal', 'odisha', 'maharashtra', 'maharashtra', 'rajasthan', 'maharashtra', 'karnataka', 'gujarat', 'madhya pradesh', 'uttar pradesh', 'west bengal', 'uttar pradesh', 'maharashtra', 'jammu and kashmir', 'maharashtra', 'karnataka', 'tamil nadu', 'karnataka', 'andhra pradesh', 'tamil nadu', 'andhra pradesh', 'tamil nadu', 'maharashtra', 'bihar', 'andhra pradesh', 'rajasthan', 'andhra pradesh', 'karnataka', 'kerala', 'west bengal', 'west bengal', 'jharkhand', 'west bengal', 'karnataka', 'punjab', 'tripura', 'bihar', 'uttar pradesh', 'west bengal', 'west bengal', 'maharashtra', 'maharashtra', 'haryana', 'madhya pradesh', 'chhattisgarh', 'rajasthan', 'odisha', 'bihar', 'maharashtra', 'uttar pradesh', 'kerala', 'tamil nadu', 'andhra pradesh', 'andhra pradesh', 'west bengal', 'odisha', 'chhattisgarh', 'uttar pradesh', 'maharashtra', 'karnataka', 'uttar pradesh', 'karnataka', 'maharashtra', 'gujarat', 'kerala', 'rajasthan', 'west bengal', 'west bengal', 'telangana', 'maharashtra', 'karnataka', 'telangana', 'puducherry', 'bihar', 'haryana', 'bihar', 'west bengal', 'mizoram', 'madhya pradesh', 'maharashtra', 'haryana', 'punjab', 'maharashtra', 'andhra pradesh', 'west bengal', 'delhi', 'bihar', 'madhya pradesh', 'uttar pradesh', 'haryana', 'uttar pradesh', 'chhattisgarh', 'manipur', 'madhya pradesh', 'uttar pradesh', 'bihar', 'andhra pradesh', 'telangana', 'uttar pradesh', 'maharashtra', 'west bengal', 'rajasthan', 'bihar', 'delhi', 'gujarat', 'west bengal', 'tamil nadu', 'puducherry', 'rajasthan', 'tamil nadu', 'madhya pradesh', 'uttar pradesh', 'karnataka', 'rajasthan', 'telangana', 'assam', 'uttarakhand', 'andhra pradesh', 'andhra pradesh', 'tamil nadu', 'rajasthan', 'delhi', 'jharkhand', 'tamil nadu', 'uttar pradesh', 'west bengal', 'madhya pradesh', 'uttar pradesh', 'madhya pradesh', 'gujarat', 'telangana', 'west bengal', 'haryana', 'west bengal', 'tamil nadu', 'karnataka', 'bihar', 'haryana', 'madhya pradesh', 'odisha', 'west bengal', 'tamil nadu', 'gujarat', 'karnataka', 'delhi', 'west bengal', 'andhra pradesh', 'jharkhand', 'bihar', 'west bengal', 'madhya pradesh', 'andhra pradesh', 'madhya pradesh', 'uttar pradesh', 'gujarat', 'madhya pradesh', 'delhi', 'west bengal', 'haryana', 'west bengal', 'haryana', 'gujarat', 'uttar pradesh', 'uttar pradesh', 'uttar pradesh', 'andhra pradesh', 'maharashtra', 'uttar pradesh', 'uttar pradesh', 'jharkhand', 'tamil nadu', 'gujarat', 'west bengal', 'haryana', 'bihar', 'west bengal', 'delhi', 'madhya pradesh', 'uttar pradesh', 'maharashtra', 'madhya pradesh', 'gujarat', 'uttar pradesh', 'west bengal', 'kerala', 'kerala', 'andhra pradesh', 'himachal pradesh', 'andhra pradesh', 'karnataka', 'bihar', 'andhra pradesh', 'telangana', 'bihar', 'assam', 'assam', 'jharkhand', 'andhra pradesh', 'assam', 'bihar', 'bihar', 'andaman and nicobar islands ut', 'jharkhand', 'andhra pradesh', 'tamil nadu', 'assam', 'bihar', 'andhra pradesh', 'bihar', 'bihar', 'jharkhand', 'assam', 'andhra pradesh', 'andhra pradesh', 'bihar', 'andhra pradesh', 'jharkhand', 'andhra pradesh', 'punjab', 'tamil nadu', 'tamil nadu', 'andhra pradesh', 'telangana', 'telangana', 'andhra pradesh', 'tamil nadu', 'bihar', 'bihar', 'uttar pradesh', 'andhra pradesh', 'andhra pradesh', 'andhra pradesh', 'bihar', 'assam', 'bihar', 'bihar', 'sikkim', 'goa']
+let cityDb = ['ahmedabad', 'surat','gandhinagar', 'pune', 'kanpur', 'nagpur', 'indore', 'thane', 'salem', 'pimpri-chinchwad', 'vadodara', 'ghaziabad', 'ludhiana', 'agra', 'nashik', 'faridabad', 'meerut', 'rajkot', 'kalyan-dombivli', 'vasai-virar', 'varanasi', 'aurangabad', 'dhanbad', 'amritsar', 'navi mumbai', 'allahabad', 'howrah', 'gwalior', 'jabalpur', 'coimbatore', 'vijayawada', 'jodhpur', 'madurai', 'kota', 'solapur', 'hubli–dharwad', 'mysore', 'tiruchirappalli', 'bareilly', 'aligarh', 'tiruppur', 'gurgaon', 'moradabad', 'jalandhar', 'warangal', 'mira-bhayandar', 'jalgaon', 'guntur', 'bhiwandi', 'saharanpur', 'gorakhpur', 'bikaner', 'amravati', 'noida', 'jamshedpur', 'bhilai', 'cuttack', 'firozabad', 'kochi', 'nellore', 'bhavnagar', 'durgapur', 'asansol', 'rourkela', 'nanded', 'kolhapur', 'ajmer', 'akola', 'gulbarga', 'jamnagar', 'ujjain', 'loni', 'siliguri', 'jhansi', 'ulhasnagar', 'sangli-miraj &amp; kupwad', 'mangalore', 'erode', 'belgaum', 'kurnool', 'ambattur', 'rajahmundry', 'tirunelveli', 'malegaon', 'gaya', 'tirupati', 'udaipur', 'kakinada', 'davanagere', 'kozhikode', 'maheshtala', 'rajpur sonarpur', 'bokaro', 'south dumdum', 'bellary', 'patiala', 'gopalpur', 'bhagalpur', 'muzaffarnagar', 'bhatpara', 'panihati', 'latur', 'dhule', 'rohtak', 'sagar', 'korba', 'bhilwara', 'berhampur', 'muzaffarpur', 'ahmednagar', 'mathura', 'kollam', 'avadi', 'kadapa', 'anantapuram', 'kamarhati', 'bilaspur', 'sambalpur', 'shahjahanpur', 'satara', 'bijapur', 'rampur', 'shimoga', 'chandrapur', 'junagadh', 'thrissur', 'alwar', 'bardhaman', 'kulti', 'nizamabad', 'parbhani', 'tumkur', 'khammam', 'uzhavarkarai', 'bihar sharif', 'panipat', 'darbhanga', 'bally', 'dewas', 'ichalkaranji', 'karnal', 'bathinda', 'jalna', 'eluru', 'barasat', 'kirari suleman nagar', 'purnia', 'satna', 'mau', 'sonipat', 'farrukhabad', 'durg', 'ratlam', 'hapur', 'arrah', 'anantapur', 'karimnagar', 'etawah', 'ambarnath', 'north dumdum', 'bharatpur', 'begusarai', 'delhi', 'gandhidham', 'baranagar', 'tiruvottiyur', 'sikar', 'thoothukudi', 'rewa', 'mirzapur', 'raichur', 'pali', 'ramagundam', 'silchar', 'haridwar', 'vijayanagaram', 'tenali', 'nagercoil', 'sri ganganagar', 'karawal nagar', 'mango', 'thanjavur', 'bulandshahr', 'uluberia', 'katni', 'sambhal', 'singrauli', 'nadiad', 'secunderabad', 'naihati', 'yamunanagar', 'bidhannagar', 'pallavaram', 'bidar', 'munger', 'panchkula', 'burhanpur', 'raurkela industrial township', 'kharagpur', 'dindigul', 'hospet', 'nangloi jat', 'malda', 'ongole', 'deoghar', 'chapra', 'haldia', 'khandwa', 'nandyal', 'morena', 'amroha', 'anand', 'bhind', 'bhalswa jahangir pur', 'madhyamgram', 'bhiwani', 'berhampore', 'ambala', 'morbi', 'fatehpur', 'raebareli', 'khora, ghaziabad', 'chittoor', 'bhusawal', 'orai', 'bahraich', 'phusro', 'vellore', 'mehsana', 'raiganj', 'sirsa', 'danapur', 'serampore', 'sultan pur majra', 'guna', 'jaunpur', 'panvel', 'shivpuri', 'surendranagar dudhrej', 'unnao', 'chinsurah', 'alappuzha', 'kottayam', 'machilipatnam', 'adoni', 'udupi', 'katihar', 'proddatur', 'mahbubnagar', 'saharsa', 'dibrugarh', 'jorhat', 'hazaribagh', 'hindupur', 'nagaon', 'sasaram', 'hajipur', 'giridih', 'bhimavaram', 'kumbakonam', 'bongaigaon', 'dehri', 'madanapalle', 'siwan', 'bettiah', 'ramgarh', 'tinsukia', 'guntakal', 'srikakulam', 'motihari', 'dharmavaram', 'medininagar', 'gudivada', 'phagwara', 'pudukkottai', 'hosur', 'narasaraopet', 'suryapet', 'miryalaguda', 'tadipatri', 'karaikudi', 'kishanganj', 'jamalpur', 'ballia', 'kavali', 'tadepalligudem', 'buxar', 'tezpur', 'jehanabad', 'aurangabad', 'vasco da gama']
 let resourcesDb = ['remdesivir', 'bed', 'plasma', 'oxygen', 'beds']
 
 exports.search_all_related_tweets = (req, res) => {
@@ -43,65 +44,65 @@ exports.search_all_related_tweets = (req, res) => {
     });
 };
 
-exports.search_keywords_in_tweets = (req, res) => {
+// exports.search_keywords_in_tweets = (req, res) => {
 
-    const {
-        text
-    } = req.body;
+//     const {
+//         text
+//     } = req.body;
 
-    // convert all letter to lowercase to match the local keywords
-    var string = text,
-        regex = /[A-Z]/g;
+//     // convert all letter to lowercase to match the local keywords
+//     var string = text,
+//         regex = /[A-Z]/g;
 
-    var modified = string.replace(regex, function (match) {
-        return match.toLowerCase();
-    });
-    console.log(modified);
+//     var modified = string.replace(regex, function (match) {
+//         return match.toLowerCase();
+//     });
+//     console.log(modified);
 
-    // spliting alll the words to compare
-    let eachKeyword = modified.split(" ");
-    console.log(eachKeyword);
+//     // spliting alll the words to compare
+//     let eachKeyword = modified.split(" ");
+//     console.log(eachKeyword);
 
-    // get the keywords from local db
-    let newArr = eachKeyword.filter(word => {
-        return db.includes(word)
-    });
+//     // get the keywords from local db
+//     let newArr = eachKeyword.filter(word => {
+//         return db.includes(word)
+//     });
 
-    let city = [];
-    let resource = [];
+//     let city = [];
+//     let resource = [];
 
-    // convert first letter to Upper Case to match the keywords in Atlas DB
+//     // convert first letter to Upper Case to match the keywords in Atlas DB
 
-    newArr.map(x => {
-        if (cityDb.includes(x)) return city.push(x)
-        else if (resourcesDb.includes(x)) return resource.push(x)
-    })
-    console.log(city)
-    let foundCities = city.map(word => {
-        let warray = word.split('');
-        warray[0] = warray[0].toUpperCase();
-        let newWord = '';
-        warray.map(letter => newWord += letter);
-        console.log(newWord);
-        return newWord;
-    });
+//     newArr.map(x => {
+//         if (cityDb.includes(x)) return city.push(x)
+//         else if (resourcesDb.includes(x)) return resource.push(x)
+//     })
+//     console.log(city)
+//     let foundCities = city.map(word => {
+//         let warray = word.split('');
+//         warray[0] = warray[0].toUpperCase();
+//         let newWord = '';
+//         warray.map(letter => newWord += letter);
+//         console.log(newWord);
+//         return newWord;
+//     });
 
-    let foundResources = resource.map(word => {
-        let warray = word.split('');
-        warray[0] = warray[0].toUpperCase();
-        let newWord = '';
-        warray.map(letter => newWord += letter);
-        return newWord;
-    })
+//     let foundResources = resource.map(word => {
+//         let warray = word.split('');
+//         warray[0] = warray[0].toUpperCase();
+//         let newWord = '';
+//         warray.map(letter => newWord += letter);
+//         return newWord;
+//     })
 
-    console.log(foundCities, foundResources);
+//     console.log(foundCities, foundResources);
 
-    //respond with the matched keywords
-    return res.status(200).json({
-        city: foundCities,
-        resource: foundResources
-    });
-};
+//     //respond with the matched keywords
+//     return res.status(200).json({
+//         city: foundCities,
+//         resource: foundResources
+//     });
+// };
 
 exports.reply = async (req, res) => {
 
@@ -172,36 +173,41 @@ exports.reply = async (req, res) => {
         console.log(city, resourceReq);
 
 
-        // making api call to db
-        let resDB = await axios.get("https://devapi.covidhelpindia.org/suppliers/1/100/Mumbai");
-        //console.log(resDB.data.results);
-        let solutions = [];
-        resDB.data.results.map(item=>{
-            item.city === city[0] && solutions.push(item)
-        })
+        // // making api call to db
+        // let resDB = await axios.get("https://devapi.covidhelpindia.org/suppliers/1/100/Mumbai");
+        // //console.log(resDB.data.results);
+        // let solutions = [];
+        // resDB.data.results.map(item=>{
+        //     item.city === city[0] && solutions.push(item)
+        // })
         
+        // let responseTweet = '';
+        // //console.log("solutions are here", solutions);
+        // for(let i=0; i<solutions.length; i++){
+        //     let x = solutions[i];
+        //     console.log(x);
+        //     responseTweet += `(${i+1}) ${x.name} ${x.address} near ${x.landmark} phone:${x.phone_1} oxygen: ${x.oxygen_avail}  ICU Ventilator:${x.icu_ventilator_avail}`
+        // }
+
+        // console.log("here", responseTweet);
+        // /info?city=<City name>&resource=<Resource Name>
         let responseTweet = '';
-        //console.log("solutions are here", solutions);
-        for(let i=0; i<solutions.length; i++){
-            let x = solutions[i];
-            console.log(x);
-            responseTweet += `(${i+1}) ${x.name} ${x.address} near ${x.landmark} phone:${x.phone_1} oxygen: ${x.oxygen_avail}  ICU Ventilator:${x.icu_ventilator_avail}`
-        }
-
-        console.log("here", responseTweet);
-
-        let originalTweet = {
+        let originalTweetData = {
             id_str,
             screen_name
         }
 
+        for(let x of resourceReq){
+            responseTweet += `${webApp_domain}/info?city=${city[0]}&resource=${x} `
+        }
+    
         const replyFunc = function(tweet, reply) {
             let sol_res = {
-              status: reply.slice(0,219) +' @' + tweet.screen_name,
+              status: reply +' @' + tweet.screen_name,
               in_reply_to_status_id: tweet.id_str,
               auto_populate_reply_metadata: true
             };
-            console.log(sol_res);
+            //console.log(sol_res);
     
             Twitter.post('statuses/update', sol_res,
               function(err, data, response) {
@@ -213,7 +219,7 @@ exports.reply = async (req, res) => {
             );
           }
         
-        replyFunc(originalTweet, responseTweet);
+        replyFunc(originalTweetData, responseTweet);
 
         
 

@@ -203,7 +203,7 @@ exports.reply = async (req, res) => {
     
         const replyFunc = function(tweet, reply) {
             let sol_res = {
-              status: reply +' @' + tweet.screen_name,
+              status: reply.slice(0,200) +' @' + tweet.screen_name,
               in_reply_to_status_id: tweet.id_str,
               auto_populate_reply_metadata: true
             };
